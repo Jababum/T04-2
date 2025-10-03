@@ -1,0 +1,91 @@
+body, h1, p, ul, li, a { /*Removes default*/
+  margin: 0;                    
+  padding: 0;                   
+  font-family: Arial, sans-serif; /* Sets consistent font across all elements */
+}
+
+/* Global body styling - affects entire page */
+body {
+  line-height: 1.6;             /* Improves text readability (1.6 times font size) */
+  background-color: #f9f9f9;    
+  color: #333;                  
+}
+
+/* ===========================================
+   NAVIGATION BAR STYLES
+   =========================================== */
+
+/* Main container */
+.navbar {
+  display: flex;                /* Creates horizontal layout */
+  align-items: center;          /* Vertically centers logo and menu items */
+  background-color: #0057b8;    
+  padding: 10px 20px;           /* Internal spacing:  top/bottom,  left/right */
+}
+
+/* Logo image styling within navbar */
+.navbar .logo img {
+  height: 40px;                 /* Fixed height maintains consistent logo size */
+  margin-right: 20px;           /* Creates space between logo and navigation menu */
+}
+
+/* Navigation menu list container */
+.navbar ul {
+  list-style: none;             /* Removes bullet points from list */
+  display: flex;                /* Creates horizontal menu layout */
+  gap: 20px;                    /* Consistent 20px spacing between menu items */
+}
+
+/* Individual navigation link styling */
+.navbar ul li a {
+  text-decoration: none;        /* Removes default underlines from links */
+  color: white;                 
+  padding: 8px 12px;            /* Creates clickable area around text */
+  transition: background 0.3s;  
+}
+
+/* ===========================================
+   INTERACTIVE HOVER EFFECTS
+   =========================================== */
+
+/* Hover state for navigation links */
+.navbar ul li a:hover {
+  background-color: #003f8a;    
+  border-radius: 5px;           /* Rounded corners */
+}
+
+/* Active page indicator styling */
+.navbar ul li a.active {
+  background-color: #ffcc00;    
+  color: black;                 
+  border-radius: 5px;           
+}
+
+/* ===========================================
+   MAIN CONTENT AREA
+   =========================================== */
+
+/* Main content container */
+main {
+  padding: 20px;                /* Internal spacing around content */
+  padding-bottom: 80px;         /* Extra bottom space prevents footer overlap */
+  min-height: calc(100vh - 120px); /* Ensures content fills viewport minus nav/footer */
+  /* calc() function: 100vh (full viewport height) minus estimated nav/footer space */
+}
+
+/* ===========================================
+   FOOTER STYLES
+   =========================================== */
+
+/* Fixed footer at bottom of page */
+footer {
+  background: #0057b8;          
+  color: white;                 
+  text-align: center;           /* Centers copyright and author information */
+  padding: 10px;                /* Internal spacing */
+  position: fixed;              /* Stays at bottom even when scrolling */
+  width: 100%;                  
+  bottom: 0;                    /* Positioned at very bottom of viewport */
+  box-sizing: border-box;       /* Includes padding in width calculation */
+  /* Prevents footer from extending beyond viewport width */
+}
