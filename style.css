@@ -98,8 +98,5 @@ footer {
   margin: 0 auto 60px auto;
   width: 100%;
   max-width: 1200px;
-  /* TEMPORARY - to make it visible */
-  background-color: red;
-  min-height: 300px;
-  border: 5px solid blue;
+  /* Removed temporary red background and blue border */
 }
