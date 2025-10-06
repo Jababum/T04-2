@@ -1,46 +1,43 @@
 body, h1, p, ul, li, a { /*Removes default*/
   margin: 0;                    
   padding: 0;                   
-  font-family: Arial, sans-serif; /* Sets consistent font across all elements */
+  font-family: Arial, sans-serif;
 }
 
 /* Global body styling - affects entire page */
 body {
-  line-height: 1.6;             /* Improves text readability (1.6 times font size) */
+  line-height: 1.4;             
   background-color: #f9f9f9;    
-  color: #333;                  
+  color: #333;
+  padding-bottom: 70px;         /* Space for fixed footer */
 }
 
 /* ===========================================
    NAVIGATION BAR STYLES
    =========================================== */
 
-/* Main container */
 .navbar {
-  display: flex;                /* Creates horizontal layout */
-  align-items: center;          /* Vertically centers logo and menu items */
+  display: flex;                
+  align-items: center;          
   background-color: #0057b8;    
-  padding: 10px 20px;           /* Internal spacing:  top/bottom,  left/right */
+  padding: 8px 20px;            
 }
 
-/* Logo image styling within navbar */
 .navbar .logo img {
-  height: 40px;                 /* Fixed height maintains consistent logo size */
-  margin-right: 20px;           /* Creates space between logo and navigation menu */
+  height: 35px;                 
+  margin-right: 15px;           
 }
 
-/* Navigation menu list container */
 .navbar ul {
-  list-style: none;             /* Removes bullet points from list */
-  display: flex;                /* Creates horizontal menu layout */
-  gap: 20px;                    /* Consistent 20px spacing between menu items */
+  list-style: none;             
+  display: flex;                
+  gap: 15px;                    
 }
 
-/* Individual navigation link styling */
 .navbar ul li a {
-  text-decoration: none;        /* Removes default underlines from links */
+  text-decoration: none;        
   color: white;                 
-  padding: 8px 12px;            /* Creates clickable area around text */
+  padding: 6px 10px;            
   transition: background 0.3s;  
 }
 
@@ -48,55 +45,95 @@ body {
    INTERACTIVE HOVER EFFECTS
    =========================================== */
 
-/* Hover state for navigation links */
 .navbar ul li a:hover {
   background-color: #003f8a;    
-  border-radius: 5px;           /* Rounded corners */
+  border-radius: 4px;           
 }
 
-/* Active page indicator styling */
 .navbar ul li a.active {
   background-color: #ffcc00;    
   color: black;                 
-  border-radius: 5px;           
+  border-radius: 4px;           
 }
 
 /* ===========================================
-   MAIN CONTENT AREA
+   MAIN CONTENT AREA - NO GAPS
    =========================================== */
 
-/* Main content container */
+/* H1 - tight spacing */
+h1 {
+  margin: 5px 0 5px 0;          /* Minimal margins */
+  padding: 0 20px;              
+  font-size: 1.8em;             
+}
+
+/* Main content - with bottom margin for chart spacing */
 main {
-  padding: 20px;                /* Internal spacing around content */
-  padding-bottom: 80px;         /* Extra bottom space prevents footer overlap */
-  min-height: calc(100vh - 120px); /* Ensures content fills viewport minus nav/footer */
-  /* calc() function: 100vh (full viewport height) minus estimated nav/footer space */
+  padding: 0 20px;              /* NO bottom padding */
+  margin: 0 0 25px 0;           /* Added bottom margin for chart gap */
+}
+
+/* Paragraphs - minimal spacing */
+p {
+  margin: 4px 0;                /* Very small margins */
+  line-height: 1.4;             
+}
+
+/* ===========================================
+   CHART CONTAINER - WITH PROPER GAP
+   =========================================== */
+
+.responsive-svg-container {
+  margin: 0 auto 60px auto;     /* No top margin (main provides gap), bottom for footer */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;              
+  box-sizing: border-box;
 }
 
 /* ===========================================
    FOOTER STYLES
    =========================================== */
 
-/* Fixed footer at bottom of page */
 footer {
   background: #0057b8;          
   color: white;                 
-  text-align: center;           /* Centers copyright and author information */
-  padding: 10px;                /* Internal spacing */
-  position: fixed;              /* Stays at bottom even when scrolling */
+  text-align: center;           
+  padding: 10px;                
+  position: fixed;              
   width: 100%;                  
-  bottom: 0;                    /* Positioned at very bottom of viewport */
-  box-sizing: border-box;       /* Includes padding in width calculation */
-  /* Prevents footer from extending beyond viewport width */
+  bottom: 0;                    
+  box-sizing: border-box;       
+  font-size: 0.85em;            
+  height: 40px;                 
 }
 
 /* ===========================================
-   RESPONSIVE SVG CONTAINER
+   REMOVE ALL UNWANTED SPACING
    =========================================== */
 
-.responsive-svg-container {
-  margin: 0 auto 60px auto;
-  width: 100%;
-  max-width: 1200px;
-  /* Removed temporary red background and blue border */
+/* Remove default margins from all elements */
+* {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Override the forced spacing - let main control the gap */
+main + .responsive-svg-container {
+  margin-top: 0 !important;     /* Remove forced gap, let main's bottom margin handle it */
+}
+
+/* Remove spacing from divs and sections */
+div, section, article {
+  margin: 0;
+  padding-top: 0;
+}
+
+#content {
+  display: none;                /* Hide the empty content div */
+}
+
+/* Hide the old small SVG that's creating spacing */
+svg[width="300"] {
+  display: none;                /* Hide the small SVG completely */
 }
