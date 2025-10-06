@@ -14,9 +14,9 @@
         <img src="PowerIcon.png" alt="Power Logo" />
       </a>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="televisions.html">Televisions</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
   </header>
@@ -37,12 +37,19 @@
     </p>
   </main>
 
+  <!-- NEW: Container for T04-3 chart -->
+  <div class="responsive-svg-container"></div>
+
   <footer>
     <p>&copy; <span id="year"></span> Megan Serafina | Built with HTML, CSS, JS | GenAI tools acknowledged</p>
   </footer>
 
-  <!-- Load D3 first, then your D3 code file -->
+  <!-- D3 library -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="energy-d3.js"></script>
+  <!-- NEW: T04-4 loader -->
+  <script src="t04-4-load.js"></script>
+  <!-- Old js files (disable while doing T04-4) -->
+  <!-- <script src="energy-d3.js"></script> -->
+  <!-- <script src="t04-3-bars.js"></script> -->
 </body>
 </html>

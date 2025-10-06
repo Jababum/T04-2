@@ -89,3 +89,17 @@ footer {
   box-sizing: border-box;       /* Includes padding in width calculation */
   /* Prevents footer from extending beyond viewport width */
 }
+
+/* ===========================================
+   RESPONSIVE SVG CONTAINER
+   =========================================== */
+
+.responsive-svg-container {
+  margin: 0 auto 60px auto;
+  width: 100%;
+  max-width: 1200px;
+  /* TEMPORARY - to make it visible */
+  background-color: red;
+  min-height: 300px;
+  border: 5px solid blue;
+}
