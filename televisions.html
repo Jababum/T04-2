@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Responsive design viewport settings for mobile compatibility -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Televisions - Appliance Energy</title>
+  <title>Television Energy Data - Appliance Energy</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <!-- Navigation bar container -->
     <nav class="navbar">
       <a href="index.html" class="logo">
         <img src="PowerIcon.png" alt="Power Logo" />
       </a>
-      <!-- Navigation menu list -->
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html" class="active">Televisions</a></li>
@@ -24,21 +21,119 @@
     </nav>
   </header>
 
-  <!-- Main content area -->
+  <h1>Television Brand Market Analysis</h1>
+  
   <main>
-    <h1>Television Energy Consumption</h1>
     <p>
-      In Australia, television energy efficiency has improved significantly 
-      over the last decade. Modern LED TVs consume less power compared to 
-      older plasma models. Households can save up to <strong>75%</strong> 
-      in TV-related energy consumption by upgrading.
+      <strong>Understanding the Data:</strong> The visualization below represents 3,313 
+      individual television units registered in Australia's national appliance energy 
+      consumption database. This data provides unique insights into which brands dominate 
+      the Australian market and their relative environmental impact potential.
+    </p>
+    
+    <p>
+      The Australian television market shows distinct patterns in brand distribution and 
+      consumer preferences. Our analysis of energy consumption data reveals significant 
+      insights about market share and brand dominance in the retail landscape.
+    </p>
+    
+    <p>
+      <strong>Key Market Insights:</strong> Samsung Electronics leads the market with 859 
+      registered units, representing approximately 28% of the total market share. This is 
+      followed by Kogan (702 units, 23%) and LG (682 units, 22%), creating a competitive 
+      landscape dominated by these three major players who collectively control over 70% 
+      of the registered television market.
+    </p>
+
+    <p>
+      <strong>Why This Matters:</strong> This market concentration has significant implications 
+      for energy policy. The dominance of major brands suggests that targeted energy efficiency 
+      programs focusing on these key players could have substantial environmental impact across 
+      Australia's household energy consumption patterns.
+    </p>
+
+    <p>
+      <strong>Energy Efficiency Context:</strong> Understanding brand distribution is crucial 
+      for energy efficiency initiatives, as different manufacturers implement varying 
+      energy-saving technologies. The visualization reveals which brands have the greatest 
+      potential influence on national energy consumption reduction efforts.
     </p>
   </main>
 
-  <!-- Footer with dynamic year and author info -->
+  <!-- Chart container -->
+  <div class="responsive-svg-container"></div>
+
+  <main>
+    <h2 style="margin-top: 30px; padding: 0 20px; font-size: 1.4em;">📊 How to Read This Visualization</h2>
+    
+    <p>
+      <strong>Chart Elements:</strong> Each horizontal bar represents a television brand, 
+      with the bar length proportional to the number of registered units in Australia's 
+      energy database. Hover over any bar to see exact unit counts and market share percentages.
+    </p>
+    
+    <p>
+      <strong>Data Source:</strong> The visualization displays television units registered 
+      in Australia's energy consumption database between 2020-2024, providing a comprehensive 
+      view of market penetration across different brands and their environmental footprint 
+      potential.
+    </p>
+
+    <h2 style="margin-top: 25px; padding: 0 20px; font-size: 1.4em;">🔍 Market Analysis</h2>
+    
+    <p>
+      <strong>Market Leaders (Top 3):</strong> Samsung Electronics' dominance (859 units) 
+      reflects both strong brand recognition and diverse product offerings across price 
+      segments. The close competition between Kogan (702) and LG (682) demonstrates the 
+      dynamic nature of the Australian TV market, with these three brands accounting for 
+      approximately 73% of all registered units.
+    </p>
+
+    <p>
+      <strong>Mid-Tier Competitors:</strong> Samsung's secondary entry (269 units) likely 
+      represents different product lines or subsidiary brands. Hisense (260 units) shows 
+      remarkable performance for a newer market entrant, indicating growing consumer 
+      acceptance of value-oriented brands in the Australian market.
+    </p>
+
+    <p>
+      <strong>Niche & Specialty Brands:</strong> Brands like Philips (130), JVC (124), 
+      EKO (97), Sony (97), and TCL (93) represent specialized market segments. Despite 
+      smaller market shares, these brands often focus on premium features, specific 
+      consumer needs, or competitive pricing strategies that maintain their market viability.
+    </p>
+
+    <h2 style="margin-top: 25px; padding: 0 20px; font-size: 1.4em;">🌱 Environmental Impact Implications</h2>
+
+    <p>
+      <strong>Energy Policy Targeting:</strong> The market concentration revealed by this 
+      data suggests that energy efficiency initiatives targeting the top 3 brands could 
+      impact over 70% of Australian TV energy consumption. This makes Samsung Electronics, 
+      Kogan, and LG critical partners for national energy reduction programs.
+    </p>
+
+    <p>
+      <strong>Consumer Behavior Insights:</strong> The distribution pattern reflects typical 
+      consumer electronics market dynamics, where established brands with strong marketing 
+      presence capture majority market share, while innovative smaller players maintain 
+      viable positions through differentiation strategies and specialized offerings.
+    </p>
+
+    <p>
+      <strong>Future Considerations:</strong> As Australia moves toward more stringent 
+      energy efficiency standards, understanding this brand landscape helps policymakers 
+      and environmental advocates focus their efforts on manufacturers with the greatest 
+      potential for widespread impact on national energy consumption patterns.
+    </p>
+  </main>
+
   <footer>
-    <!-- Year span will be populated by JavaScript -->
     <p>&copy; <span id="year"></span> Megan Serafina | Built with HTML, CSS, JS | GenAI tools acknowledged</p>
   </footer>
+
+  <!-- D3 library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="t04-4-load.js"></script>
+  <script src="t04-5-bars.js"></script>
 </body>
 </html>
