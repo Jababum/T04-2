@@ -1,15 +1,16 @@
-body, h1, p, ul, li, a { /*Removes default*/
-  margin: 0;                    
-  padding: 0;                   
+/* Reset default styles for consistent rendering */
+body, h1, p, ul, li, a {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Global body styling - affects entire page */
+/* Global body configuration */
 body {
-  line-height: 1.4;             
-  background-color: #f9f9f9;    
+  line-height: 1.4;
+  background-color: #f9f9f9;
   color: #333;
-  padding-bottom: 70px;         /* Space for fixed footer */
+  padding-bottom: 70px;        /* Space for fixed footer */
 }
 
 /* ===========================================

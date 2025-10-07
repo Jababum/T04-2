@@ -1,15 +1,18 @@
-// t04-5-bars.js
+/**
+ * Creates a responsive bar chart visualizing TV brand market share data
+ * @param {Array} data - Array of objects containing brand names and unit counts
+ */
 const createBarChart = (data) => {
-  // --- Compact Sizes ---
-  const viewW = 700;
-  const viewH = Math.max(300, data.length * 35); // Tighter spacing between bars
-  const displayW = 900;
-  const displayH = Math.min(500, data.length * 30 + 80); // More compact height
-  
-  // --- SVG root with modern styling ---
+  // --- Chart dimensions and configuration ---
+  const viewW = 700;                                    // Logical width for SVG viewBox
+  const viewH = Math.max(300, data.length * 35);       // Dynamic height based on data
+  const displayW = 900;                                // Physical display width
+  const displayH = Math.min(500, data.length * 30 + 80); // Physical display height
+
+  // --- Create main SVG container with styling ---
   const svg = d3.select(".responsive-svg-container")
     .append("svg")
-    .attr("viewBox", `0 0 ${viewW} ${viewH}`)
+    .attr("viewBox", `0 0 ${viewW} ${viewH}`)          // Responsive scaling
     .attr("width", displayW)
     .attr("height", displayH)
     .style("background", "linear-gradient(135deg, #667eea 0%, #764ba2 100%)")
@@ -17,10 +20,10 @@ const createBarChart = (data) => {
     .style("box-shadow", "0 8px 32px rgba(0, 0, 0, 0.1)")
     .style("border", "none");
 
-  // Create gradient definitions for bars
+  // --- Define gradients for bars ---
   const defs = svg.append("defs");
   
-  // Bar gradient
+  // Normal state gradient (pink)
   const barGradient = defs.append("linearGradient")
     .attr("id", "barGradient")
     .attr("x1", "0%").attr("y1", "0%")
@@ -34,7 +37,7 @@ const createBarChart = (data) => {
     .attr("offset", "100%")
     .attr("stop-color", "#fecfef");
 
-  // Hover gradient
+  // Hover state gradient (peach)
   const hoverGradient = defs.append("linearGradient")
     .attr("id", "hoverGradient")
     .attr("x1", "0%").attr("y1", "0%")
@@ -48,19 +51,21 @@ const createBarChart = (data) => {
     .attr("offset", "100%")
     .attr("stop-color", "#fcb69f");
 
-  // --- Enhanced Scales ---
+  // --- Set up scales ---
+  // X scale for bar widths (linear)
   const xMax = d3.max(data, d => d.count);
   const xScale = d3.scaleLinear()
     .domain([0, xMax])
-    .range([0, viewW - 250]);
+    .range([0, viewW - 250]);                          // Leave space for labels
     
+  // Y scale for bar positions (band)
   const yScale = d3.scaleBand()
-    .domain(data.map(d => d.brand)) 
-    .range([50, viewH - 30]) // Tighter margins
-    .paddingInner(0.1)        // Less padding between bars
-    .paddingOuter(0.05);      // Less outer padding
+    .domain(data.map(d => d.brand))                    // Brand names
+    .range([50, viewH - 30])                           // Vertical space
+    .paddingInner(0.1)                                 // Space between bars
+    .paddingOuter(0.05);                               // Space at edges
 
-  // Add chart title - smaller
+  // --- Add chart title ---
   svg.append("text")
     .text("📺 TV Brand Market Share Analysis")
     .attr("x", viewW / 2)
@@ -72,8 +77,8 @@ const createBarChart = (data) => {
     .style("fill", "#ffffff")
     .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.3)");
 
-  // --- Enhanced groups ---
-  const labelX = 200;
+  // --- Create bar groups ---
+  const labelX = 200;                                  // X position for labels
   const barAndLabel = svg
     .selectAll("g")
     .data(data)
@@ -81,7 +86,7 @@ const createBarChart = (data) => {
     .attr("transform", d => `translate(0, ${yScale(d.brand)})`)
     .style("cursor", "pointer");
 
-  // --- Enhanced Bar rectangles ---
+  // --- Add bars with animation ---
   const bars = barAndLabel
     .append("rect")
     .attr("x", labelX)
@@ -97,7 +102,7 @@ const createBarChart = (data) => {
     .delay((d, i) => i * 100)   // Quicker stagger
     .attr("width", d => xScale(d.count));
 
-  // Add hover effects with SMART TOOLTIP POSITIONING
+  // --- Add interactive hover effects and tooltips ---
   barAndLabel
     .on("mouseover", function(event, d) {
       d3.select(this).select("rect")
@@ -154,7 +159,7 @@ const createBarChart = (data) => {
       svg.select(".tooltip").remove();
     });
 
-  // --- Enhanced Category text ---
+  // --- Add brand labels ---
   barAndLabel
     .append("text")
     .text(d => d.brand)
@@ -173,7 +178,7 @@ const createBarChart = (data) => {
     .delay((d, i) => i * 100 + 200)
     .style("opacity", 1);
 
-  // --- Enhanced Value text ---
+  // --- Add value labels ---
   barAndLabel
     .append("text")
     .text(d => d.count.toLocaleString())
@@ -191,7 +196,7 @@ const createBarChart = (data) => {
     .delay((d, i) => i * 100 + 300)
     .style("opacity", 1);
 
-  // Add subtle grid lines
+  // --- Add grid lines ---
   const gridLines = svg.selectAll(".grid-line")
     .data(xScale.ticks(5))
     .join("line")
@@ -204,7 +209,7 @@ const createBarChart = (data) => {
     .style("stroke-width", 0.5)
     .style("stroke-dasharray", "2,2");
 
-  // Add x-axis labels at bottom
+  // --- Add x-axis labels ---
   svg.selectAll(".axis-label")
     .data(xScale.ticks(5))
     .join("text")

@@ -1,25 +1,24 @@
-/* Stub: will draw the chart in T04-5 */
-/*function createBarChart(data) {
-  console.log("createBarChart received", data.length, "rows");
-}*/
-/* T04-4: Load Data */
+/* Load and process TV brand data from CSV */
 /*global d3, createBarChart */
 
-/* Load CSV, Convert Type, Quick Check */
+/**
+ * Loads TV brand count data and initializes visualization
+ * Data format: CSV with columns 'brand' and 'count'
+ */
 d3.csv("data/tvBrandCount.csv", d => ({
-  brand: d.brand,
-  count: +d.count // '+' converts string to number
+  brand: d.brand,                     // Brand name (string)
+  count: +d.count                     // Convert count to number
 })).then(data => {
-  // Quick check
-  console.log(data); // whole array
-  console.log("rows:", data.length);
-  console.log("max:", d3.max(data, d => d.count));
-  console.log("min:", d3.min(data, d => d.count));
-  console.log("extent:", d3.extent(data, d => d.count)); // [min, max]
+  // Log data statistics for verification
+  console.log(data);                  // Full dataset
+  console.log("rows:", data.length);  // Number of brands
+  console.log("max:", d3.max(data, d => d.count));    // Highest count
+  console.log("min:", d3.min(data, d => d.count));    // Lowest count
+  console.log("extent:", d3.extent(data, d => d.count)); // [min, max] range
   
-  // Optional: sort for easier reading (descending by count)
+  // Sort data by count (descending) for better visualization
   data.sort((a, b) => d3.descending(a.count, b.count));
   
-  // Hand off to the chart builder (implemented in t04-5-bars.js)
+  // Create the visualization using sorted data
   createBarChart(data);
 });
