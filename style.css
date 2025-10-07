@@ -57,26 +57,31 @@ body {
 }
 
 /* ===========================================
-   MAIN CONTENT AREA - NO GAPS
+   MAIN CONTENT AREA - BETTER PARAGRAPH SPACING
    =========================================== */
 
 /* H1 - tight spacing */
 h1 {
-  margin: 5px 0 5px 0;          /* Minimal margins */
+  margin: 5px 0 15px 0;         /* Increased bottom margin for separation */
   padding: 0 20px;              
   font-size: 1.8em;             
 }
 
 /* Main content - with bottom margin for chart spacing */
 main {
-  padding: 0 20px;              /* NO bottom padding */
-  margin: 0 0 25px 0;           /* Added bottom margin for chart gap */
+  padding: 0 20px;              
+  margin: 0 0 25px 0;           
 }
 
-/* Paragraphs - minimal spacing */
+/* Paragraphs - BETTER SPACING */
 p {
-  margin: 4px 0;                /* Very small margins */
-  line-height: 1.4;             
+  margin: 0 0 16px 0;           /* Increased bottom margin for better readability */
+  line-height: 1.6;             /* Increased line height for better readability */
+}
+
+/* Last paragraph in main - no bottom margin */
+main p:last-child {
+  margin-bottom: 0;             /* Remove margin from last paragraph */
 }
 
 /* ===========================================
@@ -84,7 +89,7 @@ p {
    =========================================== */
 
 .responsive-svg-container {
-  margin: 0 auto 60px auto;     /* No top margin (main provides gap), bottom for footer */
+  margin: 0 auto 60px auto;     
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;              
@@ -147,40 +152,13 @@ h2 {
   color: #0057b8;
   border-bottom: 2px solid #0057b8;
   padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-/* Emphasis text */
-strong {
-  color: #0057b8;
+  margin: 25px 0 15px 0;        /* Better spacing around headings */
   font-weight: 600;
 }
 
-/* Enhanced paragraphs for data story */
-main p {
-  text-align: justify;
-  margin-bottom: 12px;
-}
-
-/* Special styling for key insights */
-main p:has(strong) {
-  background: linear-gradient(90deg, rgba(0,87,184,0.05) 0%, rgba(0,87,184,0.02) 100%);
-  padding: 10px;
-  border-left: 3px solid #0057b8;
-  border-radius: 0 4px 4px 0;
-}
-
-/* ===========================================
-   ENHANCED CONTEXTUALIZATION STYLES
-   =========================================== */
-
-/* Section headings with icons */
-h2 {
-  color: #0057b8;
-  border-bottom: 2px solid #0057b8;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-  font-weight: 600;
+/* First h2 after chart - add more top margin */
+.responsive-svg-container + main h2:first-child {
+  margin-top: 35px;             /* Extra space after chart */
 }
 
 /* Emphasis text with blue theme */
@@ -189,20 +167,20 @@ strong {
   font-weight: 600;
 }
 
-/* Enhanced paragraphs for data story */
+/* Enhanced paragraphs for data story - BETTER SPACING */
 main p {
   text-align: justify;
-  margin-bottom: 12px;
-  line-height: 1.5;
+  margin-bottom: 18px;          /* Increased spacing between paragraphs */
+  line-height: 1.6;             /* Better readability */
 }
 
 /* Special styling for key insights with left border */
 main p:has(strong) {
   background: linear-gradient(90deg, rgba(0,87,184,0.05) 0%, rgba(0,87,184,0.02) 100%);
-  padding: 12px;
+  padding: 15px;                /* Increased padding */
   border-left: 4px solid #0057b8;
   border-radius: 0 6px 6px 0;
-  margin: 15px 0;
+  margin: 20px 0;               /* More margin around important paragraphs */
 }
 
 /* Context boxes for important information */
@@ -210,15 +188,36 @@ main p:has(strong) {
   background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
   border: 1px solid #0057b8;
   border-radius: 8px;
-  padding: 15px;
-  margin: 20px 0;
+  padding: 18px;                /* Increased padding */
+  margin: 25px 0;               /* More margin around context boxes */
   box-shadow: 0 2px 4px rgba(0,87,184,0.1);
 }
 
 /* Highlight specific data points */
 .data-highlight {
   background-color: #ffeb3b;
-  padding: 2px 4px;
-  border-radius: 3px;
+  padding: 3px 6px;             /* Slightly more padding */
+  border-radius: 4px;           /* Slightly larger border radius */
   font-weight: 600;
+}
+
+/* ===========================================
+   RESPONSIVE PARAGRAPH SPACING
+   =========================================== */
+
+/* On smaller screens, reduce spacing slightly */
+@media (max-width: 768px) {
+  p {
+    margin-bottom: 14px;         /* Slightly less spacing on mobile */
+    line-height: 1.5;            /* Tighter line height on mobile */
+  }
+  
+  main p {
+    margin-bottom: 16px;         /* Consistent mobile spacing */
+  }
+  
+  main p:has(strong) {
+    margin: 18px 0;              /* Reduced margin on mobile */
+    padding: 12px;               /* Less padding on mobile */
+  }
 }
