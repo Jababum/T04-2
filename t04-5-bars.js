@@ -10,7 +10,7 @@ const createBarChart = (data) => {
   const displayH = Math.min(500, data.length * 30 + 80); // Physical display height
 
   // --- Create main SVG container with styling ---
-  const svg = d3.select(".responsive-svg-container")
+  const svg = d3.select(".responsive-svg-container")  // Changed back to original selector
     .append("svg")
     .attr("viewBox", `0 0 ${viewW} ${viewH}`)          // Responsive scaling
     .attr("width", displayW)
